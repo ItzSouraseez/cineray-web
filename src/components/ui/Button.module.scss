@@ -1,0 +1,69 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.button {
+  @include button-base;
+  position: relative;
+  
+  &.primary {
+    @include button-primary;
+  }
+  
+  &.secondary {
+    @include button-secondary;
+  }
+  
+  &.outline {
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    
+    &:hover:not(:disabled) {
+      background: var(--surface);
+      border-color: $primary-color;
+    }
+  }
+  
+  &.ghost {
+    background: transparent;
+    color: var(--foreground);
+    border: none;
+    
+    &:hover:not(:disabled) {
+      background: var(--surface);
+    }
+  }
+  
+  // Sizes
+  &.small {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-sm;
+  }
+  
+  &.medium {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-base;
+  }
+  
+  &.large {
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-lg;
+  }
+  
+  // Loading state
+  &.loading {
+    color: transparent;
+  }
+}
+
+.spinner {
+  @include loading-spinner(16px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hiddenText {
+  opacity: 0;
+}

@@ -1,5 +1,7 @@
 import "./globals.css";
+import "../styles/pages.scss";
 import { AuthProvider } from '../contexts/AuthContext.js';
+import AppLayout from '../components/AppLayout';
 
 export const metadata = {
   title: "Sun Tracking App",
@@ -45,7 +47,9 @@ export default function RootLayout({ children }) {
       <body>
         <div id="root">
           <AuthProvider>
-            {children}
+            <AppLayout>
+              {children}
+            </AppLayout>
           </AuthProvider>
         </div>
       </body>

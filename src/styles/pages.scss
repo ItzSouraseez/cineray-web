@@ -1,0 +1,89 @@
+@import 'variables';
+@import 'mixins';
+
+// Global page styles
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-lg $spacing-md;
+  min-height: calc(100vh - 60px); // Account for navigation height
+  
+  @include respond-to(md) {
+    padding: $spacing-xl $spacing-lg;
+  }
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  
+  h1 {
+    font-size: $font-size-3xl;
+    color: var(--foreground);
+    margin-bottom: $spacing-sm;
+    
+    @include respond-to(md) {
+      font-size: 3.5rem;
+    }
+  }
+  
+  p {
+    font-size: $font-size-lg;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.page-content {
+  // Main content area for pages
+}
+
+// Placeholder styles for development
+.map-placeholder,
+.compass-placeholder,
+.three-d-placeholder,
+.predictions-placeholder,
+.settings-placeholder {
+  @include card;
+  @include flex-center;
+  min-height: 400px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: $font-size-lg;
+  
+  @include respond-to(md) {
+    min-height: 500px;
+  }
+}
+
+// Grid layouts
+.grid-2 {
+  display: grid;
+  gap: $spacing-lg;
+  grid-template-columns: 1fr;
+  
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-3 {
+  display: grid;
+  gap: $spacing-lg;
+  grid-template-columns: 1fr;
+  
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-auto {
+  display: grid;
+  gap: $spacing-lg;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}

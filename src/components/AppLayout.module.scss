@@ -1,0 +1,17 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.appLayout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  flex: 1;
+  padding-bottom: 80px; // Space for mobile bottom navigation
+  
+  @include respond-to(md) {
+    padding-bottom: 0;
+  }
+}

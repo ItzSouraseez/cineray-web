@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.input {
+  @include input-base;
+  
+  &.error {
+    border-color: $error;
+    
+    &:focus {
+      border-color: $error;
+    }
+  }
+}
+
+.errorText {
+  font-size: $font-size-xs;
+  color: $error;
+}
+
+.helperText {
+  font-size: $font-size-xs;
+  color: var(--text-muted);
+}

@@ -1,0 +1,132 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.navigation {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  backdrop-filter: blur(10px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  @include flex-between;
+  height: 60px;
+}
+
+.logo {
+  @include flex-center;
+  gap: $spacing-sm;
+  text-decoration: none;
+  color: var(--foreground);
+  font-weight: 600;
+  font-size: $font-size-lg;
+  
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.logoIcon {
+  font-size: $font-size-xl;
+}
+
+.logoText {
+  @include respond-to(sm) {
+    display: inline;
+  }
+  
+  display: none;
+}
+
+.navList {
+  @include flex-center;
+  gap: $spacing-sm;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  // Base styles for nav items
+}
+
+.navLink {
+  @include flex-center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: $font-size-sm;
+  font-weight: 500;
+  transition: all $transition-fast;
+  
+  &:hover {
+    color: var(--foreground);
+    background: var(--background);
+  }
+  
+  &.active {
+    color: $primary-color;
+    background: rgba($primary-color, 0.1);
+  }
+}
+
+.navIcon {
+  font-size: $font-size-base;
+}
+
+.navLabel {
+  @include respond-to(md) {
+    display: inline;
+  }
+  
+  display: none;
+}
+
+// Mobile responsive navigation
+@media (max-width: $breakpoint-md - 1px) {
+  .navigation {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    border-bottom: none;
+  }
+  
+  .container {
+    height: 70px;
+    padding: $spacing-sm;
+  }
+  
+  .logo {
+    display: none;
+  }
+  
+  .navList {
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .navLink {
+    @include flex-column;
+    gap: $spacing-xs;
+    padding: $spacing-xs;
+    min-width: 50px;
+  }
+  
+  .navIcon {
+    font-size: $font-size-lg;
+  }
+  
+  .navLabel {
+    display: block;
+    font-size: $font-size-xs;
+  }
+}

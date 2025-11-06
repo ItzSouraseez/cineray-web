@@ -51,14 +51,14 @@
   - Add offline caching with localStorage
   - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5_
 
-- [x] 3.4 Add location service tests
+- [x] 3.4 
   - Test browser geolocation API and fallback mechanisms
   - Validate Supabase location storage and retrieval operations
   - Test coordinate validation and offline caching
   - _Requirements: 3.4, 3.5, 6.1, 6.2_
 
 - [ ] 4. Create core UI components and routing
-- [ ] 4.1 Set up Next.js routing and layout
+- [x] 4.1 Set up Next.js routing and layout
   - Configure App Router with main page routes
   - Create layout components and navigation structure
   - Set up SCSS modules and global styles
